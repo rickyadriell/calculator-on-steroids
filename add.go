@@ -10,12 +10,12 @@ func Add(a int, b int) int {
 }
 
 type Num struct {
-	A int `json:"a"`
-	B int `json:"b"`
+	X int `json:"x"`
+	Y int `json:"y"`
 }
 
 type Result struct {
-	Num int `json:"num"`
+	Value int `json:"result"`
 }
 
 func (s *Server) Add() http.HandlerFunc {
@@ -28,9 +28,9 @@ func (s *Server) Add() http.HandlerFunc {
 				w.WriteHeader(http.StatusBadRequest)
 				return
 			}
-			sum := Add(num.A, num.B)
-			s.logger.Info("Sum", "a=", num.A, "b=", num.B, "Result", sum)
-			result := Result{Num: sum}
+			sum := Add(num.X, num.Y)
+			s.logger.Info("Sum", "a=", num.X, "b=", num.Y, "Result", sum)
+			result := Result{Value: sum}
 			err = json.NewEncoder(w).Encode(result)
 			if err != nil {
 				s.logger.Error("Marshall error", "error", err)
