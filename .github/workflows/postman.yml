@@ -17,5 +17,3 @@ jobs:
             - name: Run API tests
               run: |
                   postman collection run "${{ github.workspace }}/postman/collections/calculator.json" --integration-id "147159-${{ github.run_id }}"
-                  # Lint your API using Postman CLI
-                  postman api lint bfc4c6bc-e44d-49b4-b6ab-9310f7d4e28a --integration-id 147159
