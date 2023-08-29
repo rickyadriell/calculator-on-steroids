@@ -1,0 +1,10 @@
+version: '3.7'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/deploy/Dockerfile
+    restart: unless-stopped
+    command: sh -c "./bin/app"
+    ports:
+      - 8080:8080
