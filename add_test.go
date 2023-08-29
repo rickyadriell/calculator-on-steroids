@@ -45,7 +45,7 @@ func TestServer_Add(t *testing.T) {
 		logger: slog.Default(),
 	}
 	srv.routes()
-	input := Num{A: 10, B: 3}
+	input := Num{X: 10, Y: 3}
 	inputJSON, _ := json.Marshal(input)
 	req := httptest.NewRequest(http.MethodPost, "/add", bytes.NewReader(inputJSON))
 	w := httptest.NewRecorder()
@@ -64,8 +64,8 @@ func TestServer_Add(t *testing.T) {
 		if err != nil {
 			t.Errorf("Unmarshal error")
 		}
-		if result.Num != want {
-			t.Errorf("Server.Add() = %v != want %v", result.Num, want)
+		if result.Value != want {
+			t.Errorf("Server.Add() = %v != want %v", result.Value, want)
 		}
 	})
 }
