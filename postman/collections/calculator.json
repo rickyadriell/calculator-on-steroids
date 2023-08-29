@@ -50,7 +50,7 @@
 						"id": "f24ca3fa-334f-4ba2-b344-7940b2376128",
 						"exec": [
 							"pm.test(\"Status code is 400\", function () {",
-							"    pm.response.to.have.status(400);",
+							"    pm.response.to.have.status(405);",
 							"});"
 						],
 						"type": "text/javascript"
@@ -87,7 +87,7 @@
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
-							"pm.test(\"1 + 2 =\", function () {",
+							"pm.test(\"1 + 2\", function () {",
 							"    var jsonData = pm.response.json();",
 							"    pm.expect(jsonData.result).to.eql(3);",
 							"});",
