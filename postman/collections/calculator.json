@@ -77,6 +77,54 @@
 			"response": []
 		},
 		{
+			"name": "GetAdd",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dabd7dc3-c6f4-43c0-a922-a98f82ae10b7",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});",
+							"pm.test(\"Error response \", () => {",
+							"    let textData = pm.response.text();",
+							"    pm.expect(textData.trim()).to.eql(\"Method not allowed\")",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "f820afb5-a62c-4db1-989e-774e98e33b63",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"x\": 1,\n    \"y\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/add",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Add",
 			"event": [
 				{
@@ -107,6 +155,55 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\n    \"x\": 1,\n    \"y\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/add",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddErr",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dabd7dc3-c6f4-43c0-a922-a98f82ae10b7",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"1 + T\", function () {",
+							"    let textData = pm.response.text();",
+							"    pm.expect(textData.trim()).to.eql(\"json: cannot unmarshal string into Go struct field Num.y of type int\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "5fba1890-7f9b-47b3-8a85-e16a6f0b8735",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"x\": 1,\n    \"y\": \"T\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
