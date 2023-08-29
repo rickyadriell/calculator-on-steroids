@@ -27,7 +27,7 @@ func TestServer_Health(t *testing.T) {
 	w = httptest.NewRecorder()
 	srv.mux.ServeHTTP(w, req)
 	t.Run("check post health", func(t *testing.T) {
-		want := http.StatusBadRequest
+		want := http.StatusMethodNotAllowed
 		if got := w.Result().StatusCode; got != want {
 			t.Errorf("Server.Health() = %v != want %v", got, want)
 		}
