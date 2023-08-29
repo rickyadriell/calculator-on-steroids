@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "fada0003-f982-4db2-81a5-4d7e5abd7b21",
+		"name": "calculator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "26737823-fada0003-f982-4db2-81a5-4d7e5abd7b21"
+	},
+	"item": [
+		{
+			"name": "getHealth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ab99de34-a991-4250-a5d0-ee752e521f78",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "f2a0afb8-0f3b-46bb-bb6b-0a7776ffd80e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/health",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postHealth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f24ca3fa-334f-4ba2-b344-7940b2376128",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "acf22f33-9fe7-4d79-96a2-9f52f0c871c8",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/health",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dabd7dc3-c6f4-43c0-a922-a98f82ae10b7",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"1 + 2 =\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.result).to.eql(3);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "ef46f496-d619-48a0-9a6e-2e0a95ab791c",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"x\": 1,\n    \"y\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/add",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"add"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "4d1bfedb-0f9a-4a78-b151-aef811b00144",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "4e0133be-63a6-4ade-88bb-5343fc7393cd",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "23206398-0f35-4970-a67d-469a9919322a",
+			"key": "base_url",
+			"value": "127.0.0.1:8080",
+			"type": "string"
+		}
+	]
+}
