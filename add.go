@@ -9,14 +9,6 @@ func Add(a int, b int) int {
 	return a + b
 }
 
-type Num struct {
-	X int `json:"x"`
-	Y int `json:"y"`
-}
-
-type Result struct {
-	Value int `json:"result"`
-}
 
 func (s *Server) Add() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
