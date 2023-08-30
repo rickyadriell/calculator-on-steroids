@@ -7,220 +7,375 @@
 	},
 	"item": [
 		{
-			"name": "getHealth",
-			"event": [
+			"name": "health",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"id": "ab99de34-a991-4250-a5d0-ee752e521f78",
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"id": "f2a0afb8-0f3b-46bb-bb6b-0a7776ffd80e",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base_url}}/health",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"health"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "postHealth",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "f24ca3fa-334f-4ba2-b344-7940b2376128",
-						"exec": [
-							"pm.test(\"Status code is 400\", function () {",
-							"    pm.response.to.have.status(405);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"id": "acf22f33-9fe7-4d79-96a2-9f52f0c871c8",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "{{base_url}}/health",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"health"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GetAdd",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "dabd7dc3-c6f4-43c0-a922-a98f82ae10b7",
-						"exec": [
-							"pm.test(\"Status code is 405\", function () {",
-							"    pm.response.to.have.status(405);",
-							"});",
-							"pm.test(\"Error response \", () => {",
-							"    let textData = pm.response.text();",
-							"    pm.expect(textData.trim()).to.eql(\"Method not allowed\")",
-							"})"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"id": "f820afb5-a62c-4db1-989e-774e98e33b63",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"x\": 1,\n    \"y\": 2\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+					"name": "getHealth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ab99de34-a991-4250-a5d0-ee752e521f78",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
 						}
-					}
-				},
-				"url": {
-					"raw": "{{base_url}}/add",
-					"host": [
-						"{{base_url}}"
 					],
-					"path": [
-						"add"
-					]
+					"id": "f2a0afb8-0f3b-46bb-bb6b-0a7776ffd80e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/health",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postHealth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f24ca3fa-334f-4ba2-b344-7940b2376128",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(405);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "acf22f33-9fe7-4d79-96a2-9f52f0c871c8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/health",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			],
+			"id": "f5ba4399-c437-4283-8a33-6f3c7d1e1408"
 		},
 		{
 			"name": "Add",
-			"event": [
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"id": "dabd7dc3-c6f4-43c0-a922-a98f82ae10b7",
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"pm.test(\"1 + 2\", function () {",
-							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.result).to.eql(3);",
-							"});",
-							""
-						],
-						"type": "text/javascript"
-					}
+					"name": "GetAdd",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dabd7dc3-c6f4-43c0-a922-a98f82ae10b7",
+								"exec": [
+									"pm.test(\"Status code is 405\", function () {",
+									"    pm.response.to.have.status(405);",
+									"});",
+									"pm.test(\"Error response \", () => {",
+									"    let textData = pm.response.text();",
+									"    pm.expect(textData.trim()).to.eql(\"Method not allowed\")",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "f820afb5-a62c-4db1-989e-774e98e33b63",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"x\": 1,\n    \"y\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/add",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dabd7dc3-c6f4-43c0-a922-a98f82ae10b7",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"1 + 2\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.result).to.eql(3);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "ef46f496-d619-48a0-9a6e-2e0a95ab791c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"x\": 1,\n    \"y\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/add",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddErr",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dabd7dc3-c6f4-43c0-a922-a98f82ae10b7",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"1 + T\", function () {",
+									"    let textData = pm.response.text();",
+									"    pm.expect(textData.trim()).to.eql(\"json: cannot unmarshal string into Go struct field Num.y of type int\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "5fba1890-7f9b-47b3-8a85-e16a6f0b8735",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"x\": 1,\n    \"y\": \"T\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/add",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"add"
+							]
+						}
+					},
+					"response": []
 				}
 			],
-			"id": "ef46f496-d619-48a0-9a6e-2e0a95ab791c",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"x\": 1,\n    \"y\": 2\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{base_url}}/add",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"add"
-					]
-				}
-			},
-			"response": []
+			"id": "7ff37830-09f7-4333-82fa-df17c3737c63"
 		},
 		{
-			"name": "AddErr",
-			"event": [
+			"name": "Subract",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"id": "dabd7dc3-c6f4-43c0-a922-a98f82ae10b7",
-						"exec": [
-							"pm.test(\"Status code is 400\", function () {",
-							"    pm.response.to.have.status(400);",
-							"});",
-							"pm.test(\"1 + T\", function () {",
-							"    let textData = pm.response.text();",
-							"    pm.expect(textData.trim()).to.eql(\"json: cannot unmarshal string into Go struct field Num.y of type int\");",
-							"});",
-							""
-						],
-						"type": "text/javascript"
-					}
+					"name": "Subtract",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dabd7dc3-c6f4-43c0-a922-a98f82ae10b7",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"1 + 2\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.result).to.eql(-1);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "64f22868-b82f-4495-9904-eda6d434b9fc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"x\": 1,\n    \"y\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/subtract",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"subtract"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetSubtract",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b2a6f133-7d73-4bf3-9cf4-7eea9fe8634c",
+								"exec": [
+									"pm.test(\"Status code is 405\",  () => {",
+									"    pm.response.to.have.status(405);",
+									"});",
+									"pm.test(\"Error response \", () => {",
+									"    let textData = pm.response.text();",
+									"    pm.expect(textData.trim()).to.eql(\"Method not allowed\")",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "ce34bfe8-25d8-4db1-8671-a6ca8c58cada",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/subtract",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"subtract"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SubtractErr",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dabd7dc3-c6f4-43c0-a922-a98f82ae10b7",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"1 - T\", function () {",
+									"    let textData = pm.response.text();",
+									"    pm.expect(textData.trim()).to.eql(\"json: cannot unmarshal string into Go struct field Num.y of type int\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "da4ed8f1-b81b-44c6-96d9-1a24d47c6c2c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"x\": 1,\n    \"y\": \"T\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/subtract",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"subtract"
+							]
+						}
+					},
+					"response": []
 				}
 			],
-			"id": "5fba1890-7f9b-47b3-8a85-e16a6f0b8735",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"x\": 1,\n    \"y\": \"T\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{base_url}}/add",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"add"
-					]
-				}
-			},
-			"response": []
+			"id": "93d298a3-0d4c-44c1-b6ee-05599051619e"
 		}
 	],
 	"event": [
